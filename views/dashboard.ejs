@@ -1,0 +1,33 @@
+<%- include('./partials/head'), {user: user, links: links} %>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold">Ciao, <%- user.username %></h1>
+    <h2 class="text-2xl font-regular">i tuoi post</h2>
+    <section class="flex flex-col gap-3 pt-10">
+            <% posts.map((post) => { %>
+                <article class="flex items-center justify-between gap-1">
+                <p class="" >
+                <span> ID: <%- post.id %> - </span>
+                <%- post.title %>
+            </p>
+            <div class="flex items-center gap-2">
+                <a class="text-blue-500" href="/posts/<%- post.id %>">Show</a>
+                <div class="h-4 border-r border-gray-400"></div>
+                <form action="/admin/edit/<%- post.id %>" method="POST">
+                    <input type="hidden" name="id" value="<%- post.id %>">
+                    <input class="hover:underline cursor-pointer text-amber-500" type="submit" value="Edit">   
+                </form>
+                <div class="h-4 border-r border-gray-400"></div>
+                <form action="/api/delete/<%- post.id %>" method="POST">
+                    <input type="hidden" name="id" value="<%- post.id %>">
+                    <input class="hover:underline cursor-pointer text-red-500" type="submit" value="Delete">   
+                </form>
+              
+               
+            </div>
+            
+        </article>
+          <% }); %>
+       
+    </section>
+</main>
+<%- include('./partials/footer')%>
