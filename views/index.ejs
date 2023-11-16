@@ -1,7 +1,15 @@
 <%- include('./partials/head'), {user: user, links: links} %>
 <main class="flex-1">
     <section class="min-h-[400px] grid place-items-center">
-        <h1 class="text-2xl font-bold">Welcome to my express blog</h1>
+        <div class="py-4 relative">
+            <img class="rounded-md" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="hero">
+            <h1 class="text-6xl font-bold absolute text-white drop-shadow-xl top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">Welcome to my express blog</h1>
+        </div>
+        
+    </section>
+    <section class="py-4">
+        <h2 class="text-2xl">How this blog is build</h2>
+        <p class="py-2">This blog is build with express and ejs. It uses a custom made MVC structure. The database is a JSON database.</p>
     </section>
 </main>
 <%- include('./partials/footer')%>

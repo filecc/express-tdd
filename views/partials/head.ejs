@@ -9,10 +9,14 @@
 
 <body class="px-4 py-2 min-h-screen flex flex-col bg-slate-50">
     <header>
-        <nav class="flex items-center justify-end gap-2">
-            <% links.map((link) => { %>
-                <a class="hover:text-blue-400 transition-all duration-500 <% if(link.active) { %> text-blue-500 font-bold uppercase <% } else { %> font-light lowercase <% } %>" href="<%- link.href %>"><%- link.label %></a>
-              <% }); %>
+        <nav class="flex items-center justify-between border-b border-gray-200 py-3">
+            <a class="font-light" href="/">fil<span class="font-bold">ecc</span></a>
+            <div class="flex items-center gap-3">
+                <% links.map((link) => { %>
+                    <a class="hover:text-blue-400 transition-all duration-500 <% if(link.active) { %> text-blue-500 font-bold uppercase <% } else { %> font-light lowercase <% } %>" href="<%- link.href %>"><%- link.label %></a>
+                  <% }); %>
+            </div>
+            
         </nav>
     </header>
     
