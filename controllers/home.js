@@ -9,19 +9,26 @@ const jwt = require("jsonwebtoken");
  */
 
 function index (req, res) {
-    let html = fs.readFileSync(path.resolve("./views/index.html"), "utf8");
-    if(req.cookies.user){
-        html = html.replace('{menuItem1}', '') 
-        html = html.replace('{menuItem2}', '<a href="/admin">Dashboard</a>')
-        html = html.replace('{menuItem3}', '<a href="/logout">Logout</a>')
-    } else {
-        html = html.replace('{menuItem1}', '<a href="/login">Login</a>')
-        html = html.replace('{menuItem2}', '')
-        html = html.replace('{menuItem3}', '')
-    }
+    const linksNoUser = [
+      {href: '/', label: 'Home', active: true},
+    {href: '/posts', label: 'Posts'},
+      {href: '/login', label: 'Login'}
+  ]
+    const linksYesUser = [
+      {href: '/', label: 'Home'},
+      {href: '/posts', label: 'Posts'},
+      {href: '/admin', label: 'Dashboard'},
+      {href: '/logout', label: 'Logout'}
     
-    res.send(html);
-   
+    ]
+
+      res.render('index', {user: req.cookies.user, links: req.cookies.user ? linksYesUser : linksNoUser})
+        return
+    
+
+     
+      
+      
 }
 
 function login (req, res) {

@@ -14,6 +14,7 @@ const notfound = require('./middleware/notfound')
 const errorMiddleware = require('./middleware/errors')
 const adminRouter = require('./routers/admin')
 
+app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
 app.use(express.json())

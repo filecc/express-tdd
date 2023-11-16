@@ -11,41 +11,24 @@ const host = process.env.HOST.includes('localhost') ? 'localhost' : ('https://' 
  */
 
 function index (req, res) {
+    const linksNoUser = [
+      { href: "/", label: "Home"},
+      { href: "/posts", label: "Posts", active: true },
+      { href: "/login", label: "Login"},
+    ];
+      const linksYesUser = [
+        { href: "/", label: "Home"},
+        { href: "/posts", label: "Posts", active: true },
+        { href: "/admin", label: "Dashboard"},
+        { href: "/logout", label: "Logout"},
+      ];
     const posts = JSON.parse(fs.readFileSync(path.resolve("./db/posts.json"), "utf8")).sort((a, b) => b.id - a.id)
     if(!posts){
         res.status(404).send("Not found")
         return
     }
-    const html = ['<a href="/">Torna alla home</a>', '<ul>']
-
-    html.push(posts.map(
-          (post) => 
-          `<li>
-            <a href="/posts/${post.id}" style='font-weight: bold; display: block; padding: 1rem 0;'>${post.title}</a>
-            <img style="max-width: 200px" src='/images${post.image}' />
-            <p>${post.body}</p>
-            <span>${post.tags.join(", ")}</span>
-        </li>
-        `
-        )
-        .join("")
-    );
-
-    
-    html.push('</ul>')
-   
-    
-    res.format({
-        text: () => {
-            res.send(html.join(''))
-        },
-        html: () => {
-           res.send(html.join(''))
-        },
-        json: () => {
-            res.send(posts)
-        }
-    })
+    res.render('posts/index', {posts: posts, user: req.cookies.user, links: req.cookies.user ? linksYesUser : linksNoUser})
+    return
    
 }
 
@@ -55,6 +38,18 @@ function index (req, res) {
  */
 
 function show (req, res) {
+    const linksNoUser = [
+        { href: "/", label: "Home"},
+        { href: "/posts", label: "Posts"},
+        { href: "/login", label: "Login"},
+      ];
+        const linksYesUser = [
+          { href: "/", label: "Home"},
+          { href: "/posts", label: "Posts" },
+          { href: "/admin", label: "Dashboard"},
+          { href: "/logout", label: "Logout"},
+        ];
+
     const posts = JSON.parse(fs.readFileSync(path.resolve("./db/posts.json"), "utf8"))
     if(!posts){
         res.status(404).send("Not found")
@@ -69,6 +64,9 @@ function show (req, res) {
     const imgPath = (`http://${host}:${port}/images${post.image}`)
     const downloadLink= (`http://localhost:3000/posts/${post.slug}/download`)
     const user = req.cookies.user
+
+    res.render('posts/post', {user: user, links: req.cookies.user ? linksYesUser : linksNoUser, post: post, image: imgPath, download: downloadLink})
+    return
     const html = `
     <h1>${post.title}</h1>
     <img style="max-width: 200px" src='/images${post.image}' />

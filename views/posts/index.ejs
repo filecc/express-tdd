@@ -1,0 +1,26 @@
+<%- include('../partials/head'), {user: user, links: links} %>
+<main class="flex-1 py-6">
+    <section class="flex flex-col gap-8">
+    <% posts.map((post) => { %>
+        <article class="flex gap-10">
+            <div>
+                <img class="max-w-[150px] md:max-w-[350px] rounded" src="/images/<%- post.image %>" alt="<%- post.title %>">
+            </div>
+            <div>
+                <h1 class="text-3xl">
+                    <a class="hover:text-blue-400 transition-all duration-200" href="/posts/<%- post.id %>">
+                        <%- post.title %>
+                    </a>
+                </h1>
+                <p class="pt-4">
+                    <%- post.body.substring(0, 300) %> <a class="text-blue-800" href="/posts/<%- post.id %>">
+                        ... Read more
+                    </a>
+                </p>
+            </div>
+        </article>
+      <% }); %>
+       
+    </section>
+</main>
+<%- include('../partials/footer')%>
