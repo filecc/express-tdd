@@ -1,0 +1,12 @@
+<%- include('./partials/headNoNav') %>
+<main class="flex-1 grid place-items-center">
+   <div class="text-center flex flex-col gap-2">
+    <h2 class="text-4xl font-regular">OOOPS.</h2>
+    <p>Something went wrong.</p>
+    <p><%- error.message %></p>
+    <p><%- error.statusCode %></p>
+   </div>
+   
+    
+</main>
+<%- include('./partials/footer')%>

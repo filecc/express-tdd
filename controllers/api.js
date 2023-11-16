@@ -95,7 +95,7 @@ function destroy(req, res) {
   fs.writeFileSync(path.resolve("./db/posts.json"), JSON.stringify(posts, null, 2))
   
 
-  res.status(200).redirect('/posts')
+  res.status(200).redirect('/admin')
 }
 
 

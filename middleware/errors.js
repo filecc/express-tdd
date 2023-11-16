@@ -3,7 +3,16 @@ const path = require("path");
 
 
 module.exports = function (err, req, res, next) {
-    let html = fs.readFileSync(path.resolve("./views/500.html"), "utf8");
-    html = html.replace("{{ message }}", err.message);
-    res.send(html);
+    const linksYesUser = [
+        { href: "/", label: "Home"},
+        { href: "/posts", label: "Posts" },
+        { href: "/admin", label: "Dashboard"},
+        { href: "/logout", label: "Logout"},
+      ];
+      const linksNoUser = [
+        { href: "/", label: "Home"},
+        { href: "/posts", label: "Posts" },
+        { href: "/login", label: "Login"},
+      ];
+    res.render("500", {error: err})
 };

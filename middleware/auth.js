@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const CustomError = require('../lib/CustomError')
 
 function isUserAuthenticated(req, res, next){
     // get cookie from request
@@ -8,11 +9,17 @@ function isUserAuthenticated(req, res, next){
         res.redirect('/login')
         return
     }
-    if(jwt.verify(token, process.env.JWT_SECRET)){
-        next()
-        return
-    }
 
+    jwt.verify(token, process.env.JWT_SECRET, (err, decodedToken) => {
+        if(err){
+            res.clearCookie('session')
+            res.clearCookie('user')
+            throw new CustomError('Your credentials are expired. Go back to login page.', 401)
+        } else {
+            next()
+            return
+        }
+    })
     
     res.status(401).redirect('/login')
    

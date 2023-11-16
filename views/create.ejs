@@ -1,0 +1,26 @@
+<%- include('./partials/head'), {user: user, links: links} %>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold py-6">Add a new post</h1>
+    <form class="flex flex-col gap-3" action="/api/post/add" method="POST" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <input class="py-2 px-2" placeholder="Insert a title" name="title" type="text" required>
+       
+        <label for="body">Content</label>
+        <textarea class="py-2 px-2" placeholder="Insert a content" name="content" id="body" cols="30" rows="10" required></textarea>
+        
+        <label for="tags">Tags</label>
+        <input class="py-2 px-2" type="text" name="tags" placeholder="Insert tags (comma separated)" required>
+        <div class="flex justify-between">
+            <div>
+                <label for="image">Image</label>
+                <input class="py-2 px-2" accept="image/jpg" type="file" name="image" placeholder="Insert an image">
+                
+            </div>
+        </div>
+       
+        <button class="max-w-[220px] bg-amber-400 hover:bg-amber-500 px-4 py-2 rounded transition-colors duration-500" type="submit">Post it</button> 
+       
+        <a href="/admin">Back to dashboard</a>
+    </form>
+</main>
+<%- include('./partials/footer')%>

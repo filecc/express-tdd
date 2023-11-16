@@ -26,7 +26,7 @@ function edit(req, res){
   const linksYesUser = [
     { href: "/", label: "Home"},
     { href: "/posts", label: "Posts" },
-    { href: "/admin", label: "Dashboard", active: true},
+    { href: "/admin", label: "Dashboard"},
     { href: "/logout", label: "Logout"},
   ];
 

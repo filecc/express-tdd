@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const CustomError = require("../lib/CustomError");
 const env = require("dotenv").config();
 
 const port = process.env.PORT ?? ''
@@ -76,15 +77,15 @@ function show (req, res) {
  */
 
 function create (req, res) {
-    res.format({
-        html: () => {
-            res.sendFile(path.resolve("./components/form.html"))
-        },
-        default: () => {
-            res.status(406).send("Not Acceptable")
-        }
-    }
-    )
+    const linksYesUser = [
+        { href: "/", label: "Home"},
+        { href: "/posts", label: "Posts" },
+        { href: "/admin", label: "Dashboard"},
+        { href: "/logout", label: "Logout"},
+      ];
+    
+      res.render('create', {user: req.cookies.user, links: linksYesUser})
+    
     
 }
 
