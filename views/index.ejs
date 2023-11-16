@@ -1,15 +1,56 @@
 <%- include('./partials/head'), {user: user, links: links} %>
-<main class="flex-1">
-    <section class="min-h-[400px] grid place-items-center">
-        <div class="py-4 relative">
-            <img class="rounded-md" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="hero">
-            <h1 class="text-6xl font-bold absolute text-white drop-shadow-xl top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">Welcome to my express blog</h1>
-        </div>
-        
-    </section>
-    <section class="py-4">
-        <h2 class="text-2xl">How this blog is build</h2>
-        <p class="py-2">This blog is build with express and ejs. It uses a custom made MVC structure. The database is a JSON database.</p>
-    </section>
-</main>
-<%- include('./partials/footer')%>
+    <main class="flex-1">
+        <section class="min-h-[400px] grid place-items-center">
+            <div class="py-4 relative">
+                <img class="rounded-md"
+                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="hero">
+                <h1
+                    class="text-6xl font-bold absolute text-white drop-shadow-xl top-1/2  left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+                    Welcome to my express blog</h1>
+            </div>
+
+        </section>
+        <section class="py-4">
+            <h2 class="text-2xl">How this blog is build</h2>
+            <p class="py-2">This project is built using Express and EJS. The project also uses a custom-made MVC
+                structure, which is a design pattern that separates an application into three interconnected components
+                to improve code organization and maintainability. Finally, the database used in this project is a JSON
+                database.</p>
+            <p class="py-2">
+                This project uses the jsonwebtoken library to verify the authenticity of a user's session token.
+                In the isUserAuthenticated function, the code first retrieves the session token from the request
+                cookies. It then attempts to verify the token using the jwt.verify method, passing in the token, a
+                secret key, and a callback function.
+            </p>
+        </section>
+
+        <section class="py-4">
+            <h2 class="text-2xl">Techs used</h2>
+           <pre class="py-4">
+            "dependencies": {
+                "cookie-parser": "^1.4.6",
+                "dotenv": "^16.3.1",
+                "ejs": "^3.1.9",
+                "express": "^4.18.2",
+                "jsonwebtoken": "^9.0.2",
+                "lodash": "^4.17.21",
+                "multer": "^1.4.5-lts.1",
+                "nodemon": "^3.0.1"
+              },
+              "devDependencies": {
+                "jest": "^29.7.0"
+              }
+           </pre>
+        </section>
+        <section class="py-4">
+            <h2 class="text-2xl py-2">Links</h2>
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-blue-500" target="_blank" href="https://github.com/filecc/express-tdd">GitHub Repo</a>
+                <a class="hover:text-blue-500" target="_blank" href="https://filecc.dev">My Personal Website</a>
+                <a class="hover:text-blue-500" target="_blank" href="https://www.linkedin.com/in/filippogiampapa">My Linkedin Profile</a>
+            </div>
+            
+        </section>
+    </main>
+    <%- include('./partials/footer')%>
