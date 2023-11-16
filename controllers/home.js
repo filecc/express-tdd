@@ -15,7 +15,7 @@ function index (req, res) {
       {href: '/login', label: 'Login'}
   ]
     const linksYesUser = [
-      {href: '/', label: 'Home'},
+      {href: '/', label: 'Home', active: true},
       {href: '/posts', label: 'Posts'},
       {href: '/admin', label: 'Dashboard'},
       {href: '/logout', label: 'Logout'}
@@ -24,11 +24,6 @@ function index (req, res) {
 
       res.render('index', {user: req.cookies.user, links: req.cookies.user ? linksYesUser : linksNoUser})
         return
-    
-
-     
-      
-      
 }
 
 function login (req, res) {
@@ -36,7 +31,7 @@ function login (req, res) {
       res.redirect('/admin')
       return
     }
-    res.sendFile(path.resolve('./views/login.html'))
+    res.render('login')
   }
 
   function logout (req, res) {
