@@ -37,3 +37,12 @@ test('should increment slug by 1 if already exists', () => {
     const test = 'esplorando-il-potere'
     expect(slugGenerator(test)).toBe('esplorando-il-potere-1');
 })
+
+test('should throw an error if array is not present', () => {
+    expect(() => slugGenerator(test)).toThrow();
+})
+
+test('should throw an error if title is not a string', () => {
+    const test = 123
+    expect(() => slugGenerator(test)).toThrow();
+})
