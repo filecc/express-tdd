@@ -23,18 +23,22 @@ function index(req, res) {
 }
 
 function edit(req, res){
-  let html = fs.readFileSync(path.resolve("./views/edit.html"), "utf8");
+  const linksYesUser = [
+    { href: "/", label: "Home"},
+    { href: "/posts", label: "Posts" },
+    { href: "/admin", label: "Dashboard", active: true},
+    { href: "/logout", label: "Logout"},
+  ];
+
   const posts = fs.readFileSync(path.resolve("./db/posts.json"), "utf8")
   const post = JSON.parse(posts).find(post => post.id === parseInt(req.params.id))
 
- 
 
-  html = html.replaceAll("{title}", post.title);
-  html = html.replace("{content}", post.body);
-  html = html.replace("{tags}", post.tags.join(", "));
-  html = html.replace("{id}", post.id);
+  res.render("edit", { user: req.cookies.user, links: linksYesUser, post: post });
+  return
 
-  res.send(html);
+
+
 }
 
 

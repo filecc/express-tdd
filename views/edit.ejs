@@ -1,0 +1,29 @@
+<%- include('./partials/head'), {user: user, links: links} %>
+<main class="flex-1">
+    <h1 class="text-3xl font-bold py-6">Modifica il post con ID <%- post.id %></h1>
+    <form class="flex flex-col gap-3" action="/api/edit/" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<%- post.id %>">
+
+        <label for="title">Title</label>
+        <input class="py-2 px-2" placeholder="Insert a title" name="title" type="text" required value="<%- post.title %>">
+       
+        <label for="body">Content</label>
+        <textarea class="py-2 px-2" placeholder="Insert a content" name="content" id="body" cols="30" rows="10" required><%- post.body %></textarea>
+        
+        <label for="tags">Tags</label>
+        <input class="py-2 px-2" type="text" name="tags" placeholder="Insert tags (comma separated)" value="<%- post.tags.join(', ') %>" required>
+        <div class="flex justify-between">
+            <div>
+                <label for="image">Image</label>
+                <input class="py-2 px-2" accept="image/jpg" type="file" name="image" placeholder="Insert an image">
+                
+            </div>
+            <img class="max-w-[250px] rounded" src="/images<%- post.image %>" alt="post image">
+        </div>
+       
+        <button class="max-w-[220px] bg-amber-400 hover:bg-amber-500 px-4 py-2 rounded transition-colors duration-500" type="submit">Finish editing</button> 
+       
+        <a href="/admin">Back to dashboard</a>
+    </form>
+</main>
+<%- include('./partials/footer')%>
