@@ -1,0 +1,25 @@
+<h1>Modifica il post: {title}</h1>
+<form action="/api/edit/" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="{id}">
+    <label for="title">Title</label>
+    <br>
+    <input placeholder="Insert a title" name="title" type="text" required value="{title}">
+    <br>
+    <label for="body">Content</label>
+    <br>
+    <textarea placeholder="Insert a content" name="content" id="body" cols="30" rows="10" required>{content}</textarea>
+    <br>
+    <label for="tags">Tags</label>
+    <br>
+    <input type="text" name="tags" placeholder="Insert tags (comma separated)" value="{tags}" required>
+    <br>
+    <label for="image">Image</label>
+    <br>
+    <input accept="image/jpg" type="file" name="image" placeholder="Insert an image">
+    <br>
+    <br>
+    <button type="submit">Edit</button>
+    <br><br>
+    <a href="/admin">Torna alla dashboard</a>
+</form>
+

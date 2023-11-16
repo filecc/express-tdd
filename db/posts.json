@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "slug": "post-one",
+    "title": "Post One",
+    "body": "This is post one",
+    "image": "/post_01.jpg",
+    "tags": [
+      "tag1",
+      "tag2"
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "post-two",
+    "title": "Post Two",
+    "body": "This is post two",
+    "image": "/post_02.jpg",
+    "tags": [
+      "tag1",
+      "tag2",
+      "tag3"
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "post-three",
+    "title": "Post Three",
+    "body": "This is post three",
+    "image": "/post_03.jpg",
+    "tags": [
+      "tag1",
+      "tag3",
+      "tag4"
+    ]
+  },
+  {
+    "id": 5,
+    "slug": "post-five",
+    "title": "Post Five",
+    "body": "This is post five",
+    "image": "/post_05.jpg",
+    "tags": [
+      "tag2",
+      "tag3",
+      "tag4"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "L'ennesimo Post",
+    "slug": "lennesimo-post",
+    "body": "questo è solo l'ennesimo post di prova",
+    "tags": [
+      "prova",
+      "ennesimo"
+    ],
+    "image": "/3e4ffa35c1333132be25623b8a66c817.jpg"
+  },
+  {
+    "id": 7,
+    "title": "L'ennesimo Postaccio brutto",
+    "slug": "lennesimo-postaccio",
+    "body": "questo è solo l'ennesimo post di prova",
+    "tags": [
+      "prova"
+    ],
+    "image": "/d9c9fa6e7587c764778fd59f9899bc67.jpg"
+  }
+]
