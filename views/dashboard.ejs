@@ -10,7 +10,7 @@
     </div>
    
     <section class="flex flex-col gap-3 pt-10">
-            <% posts.map((post) => { %>
+            <% posts.map((post, index) => { %>
                 <article class="flex items-center justify-between gap-1">
                 <p class="" >
                 <span> ID: <%- post.id %> - </span>
@@ -31,12 +31,12 @@
                       </button>
                 </form>
                 <div class="h-4 border-r border-gray-400"></div>
-                <button id="openModal" class="grid place-items-center" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
+                <button class="openModal grid place-items-center" type="button"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="red" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                   </svg>
                   </button>
-                  <div id="modal" class="hidden absolute px-6 py-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-sm">
-                    <form  action="/api/delete/<%- post.id %>" method="POST">
+                  <div id="modal-<%- index %>" class="hidden absolute px-6 py-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-sm">
+                    <form action="/api/delete/<%- post.id %>" method="POST">
                         <span class="grid place-items-center py-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 text-red-600">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                           </svg>
@@ -44,12 +44,12 @@
                         <h2 class="text-center text-xl py-2">Are you sure you want to delete</h2>
                         <p class="text-center font-bold"><%- post.title %></p>
                         <input type="hidden" name="id" value="<%- post.id %>">
-                        <button id="confirm" class="flex items-center w-full justify-center gap-2 py-2 my-6 bg-red-500 hover:bg-red-600 transition-colors duration-300 rounded-md text-white" type="submit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <button class="confirm flex items-center w-full justify-center gap-2 py-2 my-6 bg-red-500 hover:bg-red-600 transition-colors duration-300 rounded-md text-white" type="submit"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
                           </svg> Yes, delete it
                           </button>
                     </form>
-                    <button id="cancel" class="flex items-center w-full justify-center gap-2 py-2 my-6 bg-slate-100 hover:bg-slate-200 transition-colors duration-300 rounded-md text-black border border-gray-300">No, keep it</button>
+                    <button class="cancel flex items-center w-full justify-center gap-2 py-2 my-6 bg-slate-100 hover:bg-slate-200 transition-colors duration-300 rounded-md text-black border border-gray-300">No, keep it</button>
                   </div>
                 
             </div>
@@ -57,20 +57,23 @@
           <% }); %>
     </section>
     <script>
-        const openModal = document.getElementById('openModal');
-        const modal = document.getElementById('modal');
-        const confirm = document.getElementById('confirm');
-        const cancel = document.getElementById('cancel');
+        const modal = document.querySelectorAll('modal');
+        const openModal = document.querySelectorAll('.openModal');
+        const cancel = document.querySelectorAll('.cancel');
+        
 
-        openModal.addEventListener('click', () => {
-            modal.classList.remove('hidden');
+        openModal.forEach((element, index) => {
+            element.addEventListener('click', () => {
+               document.getElementById(`modal-${index}`).classList.remove('hidden');
+            })
         });
-        confirm.addEventListener('click', () => {
-            modal.classList.add('hidden');
+
+        cancel.forEach((element, index) => {
+            element.addEventListener('click', () => {
+               document.getElementById(`modal-${index}`).classList.add('hidden');
+            })
         });
-        cancel.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
+
 
 
     </script>
