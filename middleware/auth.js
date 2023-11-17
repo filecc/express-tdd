@@ -19,10 +19,7 @@ function isUserAuthenticated(req, res, next){
             next()
             return
         }
-    })
-    
-    res.status(401).redirect('/login')
-   
+    })   
 }
 
 module.exports = isUserAuthenticated

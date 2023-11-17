@@ -67,7 +67,6 @@ function show (req, res) {
     const user = req.cookies.user
 
     res.render('posts/post', {user: user, links: req.cookies.user ? linksYesUser : linksNoUser, post: post, image: imgPath, download: downloadLink})
-    return
     
 }
 

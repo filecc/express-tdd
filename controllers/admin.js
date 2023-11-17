@@ -36,9 +36,6 @@ function edit(req, res){
 
   res.render("edit", { user: req.cookies.user, links: linksYesUser, post: post });
   return
-
-
-
 }
 
 
