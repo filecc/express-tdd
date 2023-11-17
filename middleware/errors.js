@@ -14,5 +14,5 @@ module.exports = function (err, req, res, next) {
         { href: "/posts", label: "Posts" },
         { href: "/login", label: "Login"},
       ];
-    res.render("serverError", {error: err})
+    res.render("views/serverError", {error: err})
 };
