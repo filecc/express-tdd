@@ -1,8 +1,19 @@
 <%- include('../partials/head'), {user: user, links: links} %>
 <main class="flex-1 pt-10 pb-4 flex flex-col justify-between">
     <section>
+
         <article>
             <img class="rounded" src="/images/<%- post.image %>">
+            <div class="flex items-center justify-end gap-3 pt-4">
+                <a class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300" href="<%- image %>"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                  </svg>
+                   </a>
+                <a class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300" href="<%- download %>"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                   </a>
+            </div>
             <h1 class="text-4xl md:max-w-xl leading-relaxed py-6">
                 <%- post.title %>
             </h1>
@@ -18,18 +29,7 @@
               </svg>
                back to posts
                </a>
-        </div>
-        <div class="flex items-center gap-3">
-            <a class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300" href="<%- image %>"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
-              </svg>
-               </a>
-            <a class="flex items-center gap-1 hover:text-green-600 transition-colors duration-300" href="<%- download %>"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-              </svg>
-               </a>
-        </div>
-       
+        </div>    
           
     </section>
     
