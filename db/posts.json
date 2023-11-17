@@ -14,7 +14,7 @@
   {
     "id": 2,
     "slug": "bellezza-semplicita",
-    "title": "La Bellezza della Semplicità:",
+    "title": "La bellezza della semplicità",
     "body": "Nella frenesia della vita moderna, spesso trascuriamo la bellezza nelle cose semplici. Una tazza di caffè fumante al mattino, una passeggiata tranquilla al tramonto, il suono della pioggia che batte sulla finestra. Questi momenti, apparentemente insignificanti, sono le gioie che rendono la vita straordinaria. In un mondo che ci spinge costantemente a cercare di più, fermiamoci per apprezzare la semplicità intorno a noi. La vera felicità può spesso essere trovata in piccole cose. Oggi, prenditi il ​​tempo per abbracciare la bellezza della semplicità e scoprire il benessere che può portare nella tua vita.",
     "image": "/post_02.jpg",
     "tags": [
@@ -59,5 +59,17 @@
       "sfide"
     ],
     "image": "/3e4ffa35c1333132be25623b8a66c817.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Che mangino croissant, o cornetti, o brioche",
+    "slug": "che-mangino-croissant-o-cornetti-o-brioche",
+    "body": "Se vivete nel Nord Italia è possibile che la mattina chiediate al bar per colazione caffè e brioche; quasi certamente, però, il dolce da colazione che desiderate è il cornetto, come viene chiamato correttamente nel Centro e nel Sud Italia, dove è una cosa ben distinta dalle brioche, ugualmente diffuse. C’è anche un terzo dolce che in Italia si mangia spesso a colazione e che viene a volte confuso con gli altri due: il croissant francese. In realtà si tratta di tre prodotti che hanno ingredienti, preparazioni e storie differenti, e gli equivoci linguistici sono spesso oggetti di conversazioni – conversazioni letteralmente da bar – a cui possono tornare utili alcuni riferimenti storici e gastronomici.\r\n\r\nLa brioche\r\n\r\nLa brioche è un dolce lievitato francese a base di farina, latte, lievito di birra, zucchero e un’alta quantità di uova e burro, che lo rendono soffice, profumato e con una leggera crosticina più scura. Oggi la quantità di burro nell’impasto può essere metà della farina ma tradizionalmente era pari a due terzi. Inoltre si utilizza poco zucchero perché la brioche viene spesso farcita con creme, cioccolata, marmellata e confetture.\r\n\r\nLa tipologia più diffusa in Francia è la brioche à tête detta anche brioche parisienne: viene cotta in uno stampino e ha una forma simile a un pandoro rovesciato con sopra una pallina. Poi c’è la brioche Nanterre, cotta sempre in uno stampo da forno ma più grande e composta da due file affiancate di tre palline l’una. Durante l’Epifania in Provenza, nel Sud della Francia, si prepara la brioche des rois: un dolce fatto con l’impasto della brioche arricchito con aroma di fiori d’arancio e sormontato da arance e ciliegie candite.\r\n\r\nIn Italia la brioche à tête è diffusa sia a Napoli sia in Sicilia, dove viene chiamata anche brioscia o brioche col tuppo (con il cappello) e servita come accompagnamento alla tipica granita o al gelato. A differenza che in Francia, in Italia si aggiungono all’impasto aromi di limone, arancio e vaniglia, e si utilizza sia lievito madre che di birra per sviluppare meglio il gusto e l’aromaticità del dolce.",
+    "tags": [
+      "colazione",
+      "brioche",
+      "cornetto"
+    ],
+    "image": "/5fdb226b3ca31306cacc8a862e5a1605.jpg"
   }
 ]
