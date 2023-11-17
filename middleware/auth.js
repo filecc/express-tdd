@@ -6,7 +6,7 @@ function isUserAuthenticated(req, res, next){
     const token = req.cookies.session
     const user = req.cookies.user
     if(!token || !user){
-        res.redirect('/login')
+        res.status(401).redirect('/login')
         return
     }
 
