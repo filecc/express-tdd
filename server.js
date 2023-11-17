@@ -14,6 +14,8 @@ const notfound = require('./middleware/notfound')
 const errorMiddleware = require('./middleware/errors')
 const adminRouter = require('./routers/admin')
 
+app.get('/favicon.ico', (req, res) => res.status(204))
+
 app.set('view engine', 'ejs')
 
 app.use(express.static('public'))
