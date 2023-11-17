@@ -1,8 +1,8 @@
 <%- include('./partials/head'), {user: user, links: links} %>
 <main class="flex-1 relative">
-    <h1 class="text-3xl font-bold">Ciao, <%- user.username %></h1>
+    <h1 class="text-3xl font-bold py-4">Ciao, <%- user.username %></h1>
     <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-regular">i tuoi post</h2>
+        <h2 class="text-2xl font-regular">I tuoi post</h2>
         <a class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded transition-colors duration-300 text-white flex items-center gap-1" href="/posts/new"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -57,7 +57,6 @@
           <% }); %>
     </section>
     <script>
-        const modal = document.querySelectorAll('modal');
         const openModal = document.querySelectorAll('.openModal');
         const cancel = document.querySelectorAll('.cancel');
         
