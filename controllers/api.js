@@ -108,9 +108,12 @@ function login(req, res) {
 }
 
 function edit(req, res){
+
   const id = req.body.id
-  const postIndex = posts.findIndex((post) => post.id == id)
-  if(!postIndex){
+  const postIndex = posts.findIndex((post) => post.id.toString() == id)
+
+
+  if(postIndex === -1 | null | undefined){
     res.status(404).json({error: 404, message: `Post with id ${id} not found`})
     return
   }
