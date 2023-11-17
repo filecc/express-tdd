@@ -1,4 +1,4 @@
-# Project Name
+# Express Blog
 
 A personal blog build on NodeJS & Express JS (with EJS as template engine).
 
