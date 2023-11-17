@@ -25,7 +25,20 @@ function index (req, res) {
       ];
     const posts = JSON.parse(fs.readFileSync(path.resolve("./db/posts.json"), "utf8")).sort((a, b) => b.id - a.id)
     if(!posts){
-        res.status(404).send("Not found")
+      res.format({
+        html: () => {
+          res.render("400");
+        },
+        json: () => {
+          res.json({
+            error: 404,
+            message: `Post with id ${req.params.id} not found`,
+          });
+        },
+        default: () => {
+          res.render("400");
+        },
+      });
         return
     }
     res.render('posts/index', {posts: posts, user: req.cookies.user, links: req.cookies.user ? linksYesUser : linksNoUser})
@@ -53,13 +66,39 @@ function show (req, res) {
 
     const posts = JSON.parse(fs.readFileSync(path.resolve("./db/posts.json"), "utf8"))
     if(!posts){
-        res.status(404).send("Not found")
+      res.format({
+        html: () => {
+          res.render("400");
+        },
+        json: () => {
+          res.json({
+            error: 404,
+            message: `Post with id ${req.params.id} not found`,
+          });
+        },
+        default: () => {
+          res.render("400");
+        },
+      });
         return
     }
     
     const post = posts.find(post => post.id == req.params.id)
     if (!post) {
-        res.status(404).send({error: 404, message: `Post with id ${req.params.id} not found`})
+      res.format({
+        html: () => {
+          res.render("400");
+        },
+        json: () => {
+          res.json({
+            error: 404,
+            message: `Post with id ${req.params.id} not found`,
+          });
+        },
+        default: () => {
+          res.render("400");
+        },
+      });
         return
     }
     const imgPath = (`http://${host}:${port}/images${post.image}`)

@@ -23,7 +23,20 @@ const posts = JSON.parse(
 
 function index(req, res) {
   if (!posts) {
-    res.status(404).json({ error: 404, message: "Posts not found" });
+    res.format({
+      html: () => {
+        res.render("400");
+      },
+      json: () => {
+        res.json({
+          error: 404,
+          message: `Post with id ${req.params.id} not found`,
+        });
+      },
+      default: () => {
+        res.render("400");
+      },
+    });
     return;
   }
 
@@ -34,18 +47,40 @@ function show(req, res) {
   const post = posts.find((post) => post.id == req.params.id);
 
   if (!post) {
-    res
-      .status(404)
-      .send({ error: 404, message: `Post with id ${req.params.id} not found` });
+    res.format({
+      html: () => {
+        res.render("400");
+      },
+      json: () => {
+        res.json({
+          error: 404,
+          message: `Post with id ${req.params.id} not found`,
+        });
+      },
+      default: () => {
+        res.render("400");
+      },
+    });
     return;
   }
   const imgPath = `http://${host}:${port}/images${post.image}`;
   const downloadLink = `http://localhost:3000/posts/${post.slug}/download`;
-  res.json({
-    ...post,
-    image_url: `${imgPath}`,
-    download_link: `${downloadLink}`,
-  });
+  res.format({
+    json: () => {
+      res.json({
+        ...post,
+        image_url: `${imgPath}`,
+        download_link: `${downloadLink}`,
+      });
+    },
+    html: () => {
+      res.render('400')
+  },
+  default:() => {
+    res.render('400')
+}
+})
+
 }
 
 function store (req, res) {
